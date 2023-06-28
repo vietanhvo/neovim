@@ -7,6 +7,7 @@ require 'hop'.setup()
 -- go to definition in preview window
 require('goto-preview').setup {
     height = 20,
+    opacity = 5,
 }
 
 -- dap

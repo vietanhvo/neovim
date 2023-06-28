@@ -85,9 +85,9 @@ set autoread
 set autoindent
 set smartindent
 
-" Softtabs, 4 spaces
-set tabstop=4
-set shiftwidth=4
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 
@@ -142,7 +142,8 @@ noremap <leader>nf :ene <BAR> startinsert <CR>
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 
-" let g:cursorhold_updatetime = 500
+" Visual background
+hi Visual  guifg=none guibg=#504945 gui=none
 
 " Highlight for nvim tree
 hi NvimTreeSpecialFile guifg=#ff7800
