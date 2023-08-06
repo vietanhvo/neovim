@@ -116,5 +116,23 @@ db.setup({
             enable = true,
         },
         packages = { enable = false },
+      shortcut = {
+        {
+          icon = ' ',
+          icon_hl = '@variable',
+          desc = 'Browser',
+          group = '@property',
+          action = 'Telescope file_browser',
+          key = 'b',
+        },
+        {
+          icon = ' ',
+          icon_hl = '@variable',
+          desc = 'Files',
+          group = 'Number',
+          action = 'Telescope find_files',
+          key = 'f',
+        }
+      }
     },
 })
