@@ -1,9 +1,3 @@
--- notify
-vim.notify = require("notify")
-
--- navigate with hop
-require 'hop'.setup()
-
 -- go to definition in preview window
 require('goto-preview').setup {
     height = 20,
@@ -44,7 +38,6 @@ require('Comment').setup {
         }
     end,
 }
-require('todo-comments').setup {}
 
 -- Sign for Diagnostics
 local signs = {
@@ -92,10 +85,6 @@ require("indent_blankline").setup {
     filetype_exclude = { "dashboard" },
 }
 require 'colorizer'.setup()
-require('neoscroll').setup({
-    mappings = { '<C-u>', '<C-d>', '', '',
-        '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-})
 
 require('hlargs').setup()
 

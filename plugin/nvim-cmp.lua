@@ -9,7 +9,6 @@ local source_mapping = {
     buffer = "[Buffer]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
-    cmp_tabnine = "[TN]",
     path = "[Path]",
     copilot = "[Copilot]"
 }
@@ -58,7 +57,6 @@ cmp.setup {
     sorting = {
         priority_weight = 2,
         comparators = {
-            --[[ require('cmp_tabnine.compare'), ]]
             require('copilot_cmp.comparators').prioritize,
             compare.offset,
             compare.exact,
@@ -77,9 +75,7 @@ cmp.setup {
         { name = 'buffer' },
         { name = 'nvim_lua' },
         { name = 'luasnip' },
-        { name = 'nvim_lsp_signature_help' },
         { name = 'crates' },
-        { name = 'cmp_tabnine' },
         { name = 'copilot' }
     },
     formatting = {
@@ -90,13 +86,6 @@ cmp.setup {
                 vim_item.kind = lspkind.presets.default[vim_item.kind]
 
                 local menu = source_mapping[entry.source.name]
-                if entry.source.name == "cmp_tabnine" then
-                    if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-                        menu = entry.completion_item.data.detail .. " " .. menu
-                    end
-                    vim_item.kind = ""
-                    vim_item.kind_hl_group = "CmpItemKindTabnine"
-                end
                 if entry.source.name == "copilot" then
                     vim_item.kind = ""
                     vim_item.kind_hl_group = "CmpItemKindCopilot"
@@ -110,5 +99,4 @@ cmp.setup {
     },
 }
 
-vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#9967f5" })
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })

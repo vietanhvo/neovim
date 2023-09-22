@@ -11,8 +11,6 @@ call plug#begin()
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
   Plug 'Saecki/crates.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'kyazdani42/nvim-web-devicons'
@@ -23,9 +21,7 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-file-browser.nvim'
   Plug 'nvim-telescope/telescope-ui-select.nvim'
-  Plug 'folke/todo-comments.nvim'
   Plug 'numToStr/Comment.nvim'
-  Plug 'phaazon/hop.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'sindrets/diffview.nvim'
   Plug 'kylechui/nvim-surround'
@@ -42,15 +38,12 @@ call plug#begin()
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'RRethy/vim-illuminate'
-  Plug 'rcarriga/nvim-notify'
-  Plug 'karb94/neoscroll.nvim'
   Plug 'm-demare/hlargs.nvim'
   Plug 'rmagatti/goto-preview'
   Plug 'onsails/lspkind.nvim'
   Plug 'zbirenbaum/copilot.lua'
   Plug 'zbirenbaum/copilot-cmp'
   Plug 'arkav/lualine-lsp-progress'
-  Plug 'Maan2003/lsp_lines.nvim'
   Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
@@ -157,11 +150,6 @@ map <silent> <Down> <C-W>-
 map <silent> <Up> <C-W>+
 map <silent> <Left> <C-w>>
 
-" Dashboard
-noremap <leader>nf :ene <BAR> startinsert <CR>
-nmap <Leader>ss :<C-u>SessionSave<CR>
-nmap <Leader>sl :<C-u>SessionLoad<CR>
-
 " Visual background
 hi Visual  guifg=none guibg=#504945 gui=none
 
@@ -176,6 +164,7 @@ nnoremap gd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap gt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
 nnoremap gi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
 nnoremap gr <cmd>lua require('goto-preview').goto_preview_references()<CR>
+nnoremap gq <cmd>lua require('goto-preview').close_all_win({ skip_curr_window = true })<CR>
 
 " nvim-dap
 nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
