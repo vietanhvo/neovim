@@ -15,10 +15,7 @@ require("nvim-tree").setup({
 local nt_api = require("nvim-tree.api")
 vim.keymap.set('n', '<C-b>', nt_api.tree.toggle, { noremap = true, silent = true })
 vim.keymap.set('n', '<C-o>', nt_api.tree.change_root_to_node, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>mn", nt_api.marks.navigate.next)
-vim.keymap.set("n", "<leader>mp", nt_api.marks.navigate.prev)
-vim.keymap.set("n", "<leader>ms", nt_api.marks.navigate.select)
-vim.keymap.set("n", "nf", nt_api.tree.focus)
+vim.keymap.set("n", "tf", nt_api.tree.focus)
 
 -- Status line
 local colors = {
