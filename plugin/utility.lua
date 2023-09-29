@@ -74,16 +74,35 @@ require('nvim-treesitter.configs').setup {
     }
 }
 
+-- rainbow_delimiters
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+    },
+}
+
+
+-- autopairs
 require('nvim-autopairs').setup {
     check_ts = true,
 }
 
+-- indent_blankline
+local hooks = require "ibl.hooks"
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#bdae93" })
+end)
 
-require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-    filetype_exclude = { "dashboard" },
+require("ibl").setup {
+    exclude = { filetypes = {"dashboard"} },
+    scope = { highlight = {"IndentBlanklineScope"} }
 }
+
 require 'colorizer'.setup()
 
 require('hlargs').setup()

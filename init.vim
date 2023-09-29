@@ -29,7 +29,7 @@ call plug#begin()
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'p00f/nvim-ts-rainbow'
+  Plug 'HiPhish/rainbow-delimiters.nvim'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'windwp/nvim-autopairs'
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -155,9 +155,6 @@ hi Visual  guifg=none guibg=#504945 gui=none
 
 " Highlight for nvim tree
 hi NvimTreeSpecialFile guifg=#ff7800
-
-" Highlight for indent line
-hi IndentBlanklineContextChar guifg=#bdae93 gui=nocombine
 
 " Go to preview
 nnoremap gd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
