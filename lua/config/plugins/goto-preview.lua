@@ -10,5 +10,7 @@ return {
     keymap.set('n', 'gi', preview.goto_preview_implementation, { noremap = true })
     keymap.set('n', 'gr', preview.goto_preview_references, { noremap = true })
     keymap.set('n', 'gq', preview.close_all_win, { noremap = true })
+
+    preview.setup()
   end
 }
