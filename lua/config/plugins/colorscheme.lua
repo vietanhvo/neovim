@@ -7,7 +7,7 @@ return {
       g.gruvbox_material_background = 'hard'
       g.gruvbox_material_diagnostic_virtual_text = 'colored'
       g.gruvbox_material_sign_column_background = 'none'
-      g.gruvbox_material_palette = 'original'
+      g.gruvbox_material_palette = 'mix'
       g.gruvbox_material_colors_override = {
         bg_dim = { '#121314', '232' },
         bg0 = { '#1b1c1d', '234' },

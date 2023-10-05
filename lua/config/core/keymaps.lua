@@ -1,5 +1,8 @@
 -- set leader key to space
-vim.g.mapleader = " "
+local g = vim.g
+g.mapleader = " "
+
+g.python3_host_prog='/usr/bin/python3'
 
 local keymap = vim.keymap
 
@@ -22,3 +25,7 @@ keymap.set("n", "<Right>", "<C-w><", { desc = "Resize window to right" })
 keymap.set("n", "<Left>", "<C-w>>", { desc = "Resize window to left" })
 keymap.set("n", "<Down>", "<C-w>-", { desc = "Resize window to down" })
 keymap.set("n", "<Up>", "<C-w>+", { desc = "Resize window to up" })
+
+-- line management
+keymap.set("v", "J", ":m \'>+1<CR>gv=gv", { desc = "Move line down" })
+keymap.set("v", "K", ":m \'>-2<CR>gv=gv", { desc = "Move line up" })
