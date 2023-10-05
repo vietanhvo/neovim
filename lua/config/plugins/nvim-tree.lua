@@ -33,7 +33,7 @@ return {
     local nt_api = require("nvim-tree.api")
 
     keymap.set('n', '<C-b>', nt_api.tree.toggle, { noremap = true, silent = true })
-    keymap.set('n', '<C-r>', nt_api.tree.change_root_to_node, { noremap = true, silent = true })
+    keymap.set('n', '<C-i>', nt_api.tree.change_root_to_node, { noremap = true, silent = true })
     keymap.set("n", "tf", nt_api.tree.focus)
   end,
 }
