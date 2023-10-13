@@ -25,7 +25,11 @@ return {
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', bufopts)
+      vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', bufopts)
+      vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', bufopts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+      vim.keymap.set('n', 'gR', '<cmd>Telescope lsp_references<CR>', bufopts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
       vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
