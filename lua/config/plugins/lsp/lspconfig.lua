@@ -34,7 +34,7 @@ return {
       vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action, bufopts)
-      vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, bufopts)
+      -- vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, bufopts)
       vim.keymap.set('n', '<leader>oi', function()
         vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
       end, bufopts)
