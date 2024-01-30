@@ -23,7 +23,7 @@ return {
       },
       renderer = {
         highlight_git = true,
-        group_empty = true,
+        -- group_empty = true,
         indent_markers = {
           enable = true,
         },
