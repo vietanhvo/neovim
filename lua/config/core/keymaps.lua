@@ -2,8 +2,6 @@
 local g = vim.g
 g.mapleader = " "
 
-g.python3_host_prog='/usr/bin/python3'
-
 local keymap = vim.keymap
 
 -- window management
@@ -29,3 +27,5 @@ keymap.set("n", "<Up>", "<C-w>+", { desc = "Resize window to up" })
 -- line management
 keymap.set("v", "J", ":m \'>+1<CR>gv=gv", { desc = "Move line down" })
 keymap.set("v", "K", ":m \'>-2<CR>gv=gv", { desc = "Move line up" })
+
+keymap.set("n", "<Leader>b", ":ls<CR>:b<Space>", { desc = "Test" })

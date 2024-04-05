@@ -21,6 +21,11 @@ return {
       diagnostics = {
         enable = true,
       },
+      view = {
+        width = {
+          max = 40
+        }
+      },
       renderer = {
         highlight_git = true,
         -- group_empty = true,
