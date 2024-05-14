@@ -73,7 +73,7 @@ return {
 							NvimTreeGitDirty = { fg = colors.peach },
 							NvimTreeIndentMarker = { fg = colors.surface1 },
 							NvimTreeNormal = { bg = colors.mantle },
-							NvimTreeRootFolder = { fg = colors.pink, style = { "bold" } },
+							NvimTreeRootFolder = { fg = colors.pink, style = { "italic" } },
 							NvimTreeWinSeparator = { fg = colors.base, bg = colors.base },
 							NvimTreeCursorLine = { bg = colors.surface0 },
 							DashboardHeader = { fg = colors.yellow },
