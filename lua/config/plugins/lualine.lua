@@ -5,6 +5,19 @@ return {
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
 
+		local function is_active()
+			local ok, hydra = pcall(require, "hydra.statusline")
+			return ok and hydra.is_active()
+		end
+
+		local function get_name()
+			local ok, hydra = pcall(require, "hydra.statusline")
+			if ok then
+				return hydra.get_name()
+			end
+			return ""
+		end
+
 		local colors = {
 			cyan = "#008080",
 			orange = "#FF8800",
@@ -27,7 +40,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch", "diff", "diagnostics", { get_name, cond = is_active } },
 				lualine_c = {
 					"filename",
 					{

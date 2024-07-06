@@ -21,10 +21,11 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
-        "pylsp",
+				"pylsp",
 				"vimls",
 				"dockerls",
 				"jsonls",
+				"eslint",
 			},
 			automatic_installation = true,
 		})

@@ -25,7 +25,7 @@ keymap.set("n", "<Down>", "<C-w>-", { desc = "Resize window to down" })
 keymap.set("n", "<Up>", "<C-w>+", { desc = "Resize window to up" })
 
 -- line management
-keymap.set("v", "J", ":m \'>+1<CR>gv=gv", { desc = "Move line down" })
-keymap.set("v", "K", ":m \'>-2<CR>gv=gv", { desc = "Move line up" })
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+keymap.set("v", "K", ":m '>-2<CR>gv=gv", { desc = "Move line up" })
 
 keymap.set("n", "<Leader>b", ":ls<CR>:b<Space>", { desc = "Test" })
