@@ -65,7 +65,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-		local servers = { "pylsp", "tsserver", "vimls", "dockerls", "lua_ls", "jsonls", "html", "cssls", "eslint" }
+		local servers = { "pylsp", "ts_ls", "vimls", "dockerls", "lua_ls", "jsonls", "html", "cssls" }
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({
 				on_attach = on_attach,
@@ -73,7 +73,18 @@ return {
 			})
 		end
 
-		require("lspconfig").lua_ls.setup({
+		lspconfig.eslint.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				experimental = {
+					useFlatConfig = true,
+				},
+				validate = "probe",
+			},
+		})
+
+		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
 					diagnostics = {

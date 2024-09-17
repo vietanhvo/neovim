@@ -37,6 +37,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+opt.scrolloff = 4
+
 local g = vim.g
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
