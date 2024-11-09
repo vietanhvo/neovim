@@ -3,7 +3,7 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
+		"https://codeberg.org/FelipeLema/cmp-async-path",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
@@ -68,7 +68,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
-				{ name = "path" },
+				{ name = "async_path" },
 				{ name = "copilot" },
 			}),
 			formatting = {

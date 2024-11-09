@@ -19,13 +19,11 @@ keymap.set("n", "<M-l>", "<C-W>l", { desc = "Navigate to right window" })
 keymap.set("n", "<M-j>", "<C-W>j", { desc = "Navigate to down window" })
 keymap.set("n", "<M-k>", "<C-W>k", { desc = "Navigate to up window" })
 
-keymap.set("n", "<Right>", "<C-w><", { desc = "Resize window to right" })
-keymap.set("n", "<Left>", "<C-w>>", { desc = "Resize window to left" })
-keymap.set("n", "<Down>", "<C-w>-", { desc = "Resize window to down" })
-keymap.set("n", "<Up>", "<C-w>+", { desc = "Resize window to up" })
+keymap.set("n", "<Right>", "<cmd>vertical resize +3<CR>", { desc = "Resize window to right" })
+keymap.set("n", "<Left>", "<cmd>vertical resize -3<CR>", { desc = "Resize window to left" })
+keymap.set("n", "<Up>", "<cmd>resize +3<CR>", { desc = "Resize window to up" })
+keymap.set("n", "<Down>", "<cmd>resize -3<CR>", { desc = "Resize window to down" })
 
 -- line management
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap.set("v", "K", ":m '>-2<CR>gv=gv", { desc = "Move line up" })
-
-keymap.set("n", "<Leader>b", ":ls<CR>:b<Space>", { desc = "Test" })
