@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.nvim",
+	"echasnovski/mini.icons",
 	version = "*",
 	config = function()
 		require("mini.icons").setup()
