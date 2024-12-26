@@ -1,6 +1,6 @@
 return {
 	"sindrets/diffview.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 	event = { "BufReadPost", "BufNewFile" },
 	config = function()
 		require("diffview").setup({

@@ -8,11 +8,9 @@ return {
 		require("lint").linters_by_ft = {
 			bash = { "shellcheck" },
 			dockerfile = { "hadolint" },
-			fish = { "fish" },
 			sh = { "shellcheck" },
 			yaml = { "yamllint", "actionlint" },
 			zsh = { "shellcheck" },
-			NeogitCommitMessage = { "alex" },
 			markdown = { "alex" },
 		}
 

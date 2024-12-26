@@ -2,7 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		"simrat39/rust-tools.nvim",
 	},
 	config = function()
@@ -59,9 +60,10 @@ return {
 		end
 
 		-- Add additional capabilities supported by nvim-cmp
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 		local lspconfig = require("lspconfig")
 		vim.fn.sign_define(
 			"DiagnosticSignError",

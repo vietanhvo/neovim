@@ -1,7 +1,7 @@
 return {
 	"glepnir/dashboard-nvim",
 	event = "VimEnter",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 	config = function()
 		local db = require("dashboard")
 		db.setup({
