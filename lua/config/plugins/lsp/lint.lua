@@ -9,7 +9,7 @@ return {
 			bash = { "shellcheck" },
 			dockerfile = { "hadolint" },
 			sh = { "shellcheck" },
-			yaml = { "yamllint", "actionlint" },
+			yaml = { "yamllint" },
 			zsh = { "shellcheck" },
 			markdown = { "alex" },
 		}
