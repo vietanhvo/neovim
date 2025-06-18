@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-    "saghen/blink.cmp",
+		"saghen/blink.cmp",
 		-- "hrsh7th/cmp-nvim-lsp",
 		"simrat39/rust-tools.nvim",
 	},
@@ -63,24 +63,7 @@ return {
 		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 		-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
-		local lspconfig = require("lspconfig")
-		vim.fn.sign_define(
-			"DiagnosticSignError",
-			{ text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError" }
-		)
-		vim.fn.sign_define(
-			"DiagnosticSignHint",
-			{ text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" }
-		)
-		vim.fn.sign_define(
-			"DiagnosticSignInfo",
-			{ text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" }
-		)
-		vim.fn.sign_define(
-			"DiagnosticSignWarn",
-			{ text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }
-		)
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		vim.diagnostic.config({
 			float = {
@@ -91,10 +74,24 @@ return {
 					return string.format("%s: %s ", diagnostic.source or "", diagnostic.message)
 				end,
 			},
-			signs = true,
 			underline = true,
 			update_in_insert = false,
 			severity_sort = true,
+
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "",
+					[vim.diagnostic.severity.HINT] = "",
+				},
+				numhl = {
+					[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+					[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+					[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+					[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+				},
+			},
 		})
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -112,13 +109,13 @@ return {
 		-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 		local servers = { "pylsp", "ts_ls", "vimls", "dockerls", "lua_ls", "jsonls", "html", "cssls", "jdtls" }
 		for _, lsp in ipairs(servers) do
-			lspconfig[lsp].setup({
+			vim.lsp.config(lsp, {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 		end
 
-		lspconfig.eslint.setup({
+		vim.lsp.config("eslint", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = {
@@ -129,7 +126,7 @@ return {
 			},
 		})
 
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -139,7 +136,7 @@ return {
 			},
 		})
 
-		require("lspconfig").postgres_lsp.setup({})
+		vim.lsp.config("postgres_lsp", {})
 
 		-- rust-tools
 		local rust_opts = {
