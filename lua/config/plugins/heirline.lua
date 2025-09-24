@@ -305,42 +305,54 @@ return {
 			condition = function()
 				return conditions.buffer_not_empty() and conditions.hide_in_width() and conditions.has_diagnostics()
 			end,
-
-			error_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR],
-			warn_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.WARN],
-			info_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.INFO],
-			hint_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.HINT],
-
 			init = function(self)
+				-- Get diagnostic counts
 				self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 				self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 				self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
 				self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+
+				-- Safely get diagnostic icons with fallbacks
+				local diagnostic_config = vim.diagnostic.config()
+				local signs_config = diagnostic_config.signs
+
+				if type(signs_config) == "table" and signs_config.text then
+					self.error_icon = signs_config.text[vim.diagnostic.severity.ERROR] or "E"
+					self.warn_icon = signs_config.text[vim.diagnostic.severity.WARN] or "W"
+					self.info_icon = signs_config.text[vim.diagnostic.severity.INFO] or "I"
+					self.hint_icon = signs_config.text[vim.diagnostic.severity.HINT] or "H"
+				else
+					-- Fallback icons if signs config is not in expected format
+					self.error_icon = "E"
+					self.warn_icon = "W"
+					self.info_icon = "I"
+					self.hint_icon = "H"
+				end
 			end,
 			update = { "DiagnosticChanged", "BufEnter" },
 			hl = { bg = colors.crust },
 			Space,
 			{
 				provider = function(self)
-					return self.errors > 0 and ("%s%s "):format(self.error_icon, self.errors)
+					return self.errors > 0 and ("%s %s "):format(self.error_icon, self.errors)
 				end,
 				hl = { fg = colors.red },
 			},
 			{
 				provider = function(self)
-					return self.warnings > 0 and ("%s%s "):format(self.warn_icon, self.warnings)
+					return self.warnings > 0 and ("%s %s "):format(self.warn_icon, self.warnings)
 				end,
 				hl = { fg = colors.yellow },
 			},
 			{
 				provider = function(self)
-					return self.info > 0 and ("%s%s "):format(self.info_icon, self.info)
+					return self.info > 0 and ("%s %s "):format(self.info_icon, self.info)
 				end,
 				hl = { fg = colors.sapphire },
 			},
 			{
 				provider = function(self)
-					return self.hints > 0 and ("%s%s "):format(self.hint_icon, self.hints)
+					return self.hints > 0 and ("%s %s "):format(self.hint_icon, self.hints)
 				end,
 				hl = { fg = colors.sky },
 			},

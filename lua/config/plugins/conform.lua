@@ -17,7 +17,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "black" },
+				python = { "ruff_format" },
 			},
 		})
 
